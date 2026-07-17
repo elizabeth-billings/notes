@@ -9,7 +9,7 @@
 int("100", 2)   # 4  (binary)
 int("ff", 16)   # 255 (hex)
 int("17", 8)    # 15  (octal)
-​```
+```
 
 **When I'd reach for this:** Parsing binary/hex strings from data migrations, config files, or user input.
 
