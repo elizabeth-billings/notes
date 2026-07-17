@@ -5,8 +5,9 @@
 **Signature:** `int(x: str, base: int) -> int`
 
 **Example:**
-​```python
-int("100", 2)   # 4  (binary)
+
+```python
+int("100", 2)   # 4   (binary)
 int("ff", 16)   # 255 (hex)
 int("17", 8)    # 15  (octal)
 ```
@@ -15,8 +16,8 @@ int("17", 8)    # 15  (octal)
 
 **Gotchas:**
 - Base must match the string's format, or you'll get a `ValueError`.
-- Works for any base 2-36, not just the common ones.
+- Works for any base from 2 to 36, not just the common ones.
 
-**Related:** `bin()`, `hex()`, `oct()` do the reverse (int -> string).
+**Related:** `bin()`, `hex()`, `oct()` do the reverse (`int` -> `str`).
 
 **Tags:** #python #number-conversion #strings
