@@ -1,3 +1,5 @@
+# Built-Ins
+
 ## `int(string, base)`
 
 **What it does:** Converts a string representation of a number in a given base to an integer.
