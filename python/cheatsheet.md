@@ -13,6 +13,9 @@ comment
 print("Hello, world!")
 ```
 
+## Whitespace
+Python uses whitespace instead of brackets. The standard is **4 spaces** or **1 tab stroke**. 
+
 # Variables 
 
 ## Variable Decleration 
@@ -61,14 +64,13 @@ concat = con + cat # "concat"
 cat_count = 2 # Integer
 cat_spirit_score = -0.235 # Float
 ```
+Floats should have leading 0 for readability (0.5 instead of just .5). 
 
 ### Booleans 
 ```python
 is_maxwell_orange = True
 is_maxwell_purple = False
 ```
-
-Floats should have leading 0 for readability (0.5 instead of just .5). 
 
 # Functions 
 ```python
@@ -170,4 +172,147 @@ print((is_by and is_large) or is_mostly) # True
 ## Binary
 ```python
 binary_twelve = 0b1100 # Same as 12 in base 10 
+```
+
+## Bitwise Operators
+Bitwise operators apply boolean logic to each "column" of a binary value. 
+
+### &
+```python
+print(0b0101 & 0b0111) # 5 (0b0101) 
+```
+
+### |
+```python
+print(0b0101 | 0b0111) # 7 (0b0111) 
+```
+
+# Comparisons 
+
+## Comparison Operators
+```python
+print(2 < 3)  # True
+print(2 > 3)  # False
+print(2 <= 3) # True
+print(2 >= 3) # False
+print(2 == 3) # False
+print(2 != 3) # True
+```
+
+# If... Else 
+```python
+score = 7
+msg = None 
+
+if (score >= 8):
+    msg = "Good job!"
+elif (score >= 6):
+    msg = "Keep trying!"
+else:
+    msg = "Give up."
+
+print(msg) # Keep trying! 
+```
+
+# Loops
+
+## For 
+```python
+count = 0
+for i in range(0, 10):
+    count += 1
+
+print(count)
+```
+range(x, y) is inclusive of x but exclusive of y. So above is the same as something like **for(i = 0; i < 10; i++)**
+
+### Range Step
+```python
+countdown = "" 
+for i in range(5, 0, -1): 
+    countdown += f"{i}... "
+
+print(countdown) # 5... 4... 3... 2... 1... 
+```
+
+```python
+even_nums = "" 
+for i in range(2, 11, 2): 
+    even_nums += f"{i} "
+
+print(even_nums) # 2 4 6 8 10 
+```
+
+## While
+```python
+countdown = 5
+msg = ""
+
+while (countdown > 0): 
+    msg += f"{countdown}... "
+    countdown -= 1
+
+print(msg) # 5... 4... 3... 2... 1... 
+```
+
+## Continue 
+```python
+even_nums = "" 
+is_odd = False
+
+for i in range(2, 11):
+    if is_odd: 
+        is_odd = False
+        continue
+    even_nums += f"{i} " 
+    is_odd = True
+
+print(even_nums) # 2 4 6 8 10 
+```
+
+## Break
+```python
+pre_lucky_nums = ""
+lucky_num = 7
+
+for i in range(0, 10):
+    if i == lucky_num:
+        break
+    pre_lucky_nums += f"{i} "
+
+print(pre_lucky_nums) # 0 1 2 3 4 5 6 
+```
+
+# Lists
+Python arrays are called lists. 
+
+## Initialization 
+```python
+fish_num = ["one fish", "two fish"] 
+fish_colors = [
+    "red fish",
+    "blue fish"
+]
+
+print(fish_num) # ['one fish', 'two fish']
+print(fish_colors) # ['red fish', 'blue fish']
+```
+
+## Accessing Elements
+```python
+fish_num = ["one fish", "two fish"] 
+
+print(fish_num[0]) # one fish
+
+fish_num[0] = "three fish" 
+
+print(fish_num[0]) # three fish
+```
+
+## List Length 
+```python
+cats = ["maxwell", "laser"]
+
+print(len(cats)) # 2
+print(len(cats[0])) # 7
 ```
