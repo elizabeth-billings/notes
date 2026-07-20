@@ -450,3 +450,60 @@ print(" ".join(my_list)) # I love cats!
 cats = ["Maxwell", "Laser", "Garfield"]
 print(",".join(cats)) # Maxwell,Laser,Garfield
 ```
+
+# Dictionaries 
+```python
+cat = {
+    "name": "Maxwell",
+    "color": "orange",
+    "age": 11,
+    "is_mine": True
+}
+
+print(cat["name"]) # Maxwell
+
+# Add key / value pair
+cat["breed"] = "tabby"
+
+# Delete key / value pair
+del cat["breed"] 
+```
+
+## Adding a key / value pair 
+```python
+cat["breed"] = "tabby"
+```
+
+## Adding a key / value pair 
+```python
+del cat["breed"] 
+```
+
+## Check if Dictionary Contains Key
+```python
+cat = {
+    "name": "Maxwell",
+    "color": "orange",
+    "age": 11,
+    "is_mine": True
+}
+
+print("breed" in cat) # False 
+```
+
+## Iterating over a Dictionary
+```python
+for key in cat:
+    print(f"{key} is {cat[key]}")
+
+"""
+prints: 
+name is Maxwell
+color is orange
+age is 11
+is_mine is True
+"""
+```
+
+## Order
+Before Python 3.7, dictionaries were unordered. As of Python 3.7 and later, they are now **ordered**, so you can be sure that the key / value pairs will always stay in the same order every time. 
