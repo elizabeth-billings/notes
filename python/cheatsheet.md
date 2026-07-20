@@ -321,12 +321,15 @@ print(fish_nums[0]) # three fish
 ```
 
 ## List Length 
+To check if a list is empty, check that the length is 0. 
+
 ```python
 cats = ["maxwell", "laser"]
 
 print(len(cats)) # 2
 print(len(cats[0])) # 7
 ```
+
 ## Push
 ```python
 fish_nums = ["one fish", "two fish"] 
@@ -400,4 +403,50 @@ print(colors) # ['Orange', 'Indigo', 'Violet']
 
 del colors[:]
 print(colors) # []
+```
+
+## Tuples
+**Tuples** are lists with a fixed size. Since they have a fixed size, it's considered okay to store different types of data in the same tuple. 
+
+```python
+my_tuple = ("I'm a tuple", 235, True) 
+print(my_tuple) # ("I'm a tuple", 235, True)
+print(my_tuple[1]) # 235
+
+single_item_tuple = ("I only have one item but I still need the comma after the one item",)
+
+cats = [
+    ("Maxwell", "orange", 11),
+    ("Laser", "black", 8)
+]
+
+print(cats[1][0]) # Laser
+```
+
+### Tuple Unpacking
+When a function returns multiple values, it's actually returning a single tuple that is then unpacked. 
+
+```python
+cat = ("Maxwell", "orange", 11)
+
+cat_name, cat_color, cat_age = cat
+print(f"{cat_name} is a {cat_age}-year-old {cat_color} cat.") # Maxwell is a 11-year-old orange cat.
+```
+
+## Split String
+```python
+msg = "I love cats!"
+print(msg.split()) # ['I', 'love', 'cats!']
+
+cats = "Maxwell,Laser,Garfield"
+print(cats.split(",")) # ['Maxwell', 'Laser', 'Garfield']
+```
+
+## Join List to String
+```python
+my_list = ["I", "love", "cats!"]
+print(" ".join(my_list)) # I love cats!
+
+cats = ["Maxwell", "Laser", "Garfield"]
+print(",".join(cats)) # Maxwell,Laser,Garfield
 ```
