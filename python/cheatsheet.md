@@ -49,6 +49,8 @@ my_cat = "Maxwell"
 
 Strings can be written with double or single quotes, though **double quotes** are preferred. 
 
+Strings are iterable, so you don't need to convert them to character arrays to use in for loops or to get character at certain indexes. 
+
 #### Formatted Strings (f-strings)
 ```python
 print(f"Hello, {my_cat}!") # Hello, Maxwell!
@@ -507,3 +509,62 @@ is_mine is True
 
 ## Order
 Before Python 3.7, dictionaries were unordered. As of Python 3.7 and later, they are now **ordered**, so you can be sure that the key / value pairs will always stay in the same order every time. 
+
+# Sets
+```python
+cats = {"Maxwell", "Laser", "Garfield"}
+
+cats.add("Frederick") 
+print(cats) # {'Laser', 'Frederick', 'Garfield', 'Maxwell'}
+```
+
+## Add to Set
+```python
+cats = {"Maxwell", "Laser", "Garfield"}
+cats.add("Frederick")
+
+print(cats) # {'Garfield', 'Maxwell', 'Laser', 'Frederick'}
+```
+
+## Remove from Set 
+```python
+cats = {"Maxwell", "Laser", "Garfield"}
+cats.remove("Garfield")
+
+print(cats) # {'Maxwell', 'Laser'}
+```
+
+## Initialize an Empty Set
+```python
+cats = set()
+cats.add("Maxwell")
+print(cats) # {'Maxwell'}
+```
+
+## Iterate Over a Set
+Sets are unordered, so the order of iteration isn't always going to be the same. 
+
+```python
+cats = {"Maxwell", "Laser", "Garfield"}
+
+for cat in cats: 
+    print(f"Hello, {cat}")
+```
+
+## Set <-> List Conversion
+```python
+cats = {"Maxwell", "Laser", "Garfield"}
+cats_list = list(cats) 
+
+print(cats_list) # ['Laser', 'Garfield', 'Maxwell']
+print(set(cats_list)) # {'Laser', 'Garfield', 'Maxwell'}
+```
+
+## Set Subtraction 
+```python
+cats_in_apartment = {"Maxwell", "Laser"} 
+my_cats = {"Maxwell"} 
+
+not_my_cats = cats_in_apartment - my_cats
+print(not_my_cats) # {'Laser'}
+```
