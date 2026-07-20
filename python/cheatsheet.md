@@ -66,6 +66,12 @@ cat_spirit_score = -0.235 # Float
 ```
 Floats should have leading 0 for readability (0.5 instead of just .5). 
 
+#### Infinity
+```python
+positive_infinity = float("inf") # Every value will be less than
+negative_infinity = float("-inf") # Every value will be greater than
+```
+
 ### Booleans 
 ```python
 is_maxwell_orange = True
@@ -121,6 +127,11 @@ print(11 // 2) # 5
 ## Exponents
 ```python
 print(2 ** 3) # 8
+```
+
+## Modulo
+```python
+print(8 % 3) # 2
 ```
 
 ## In-Place Operators
@@ -288,25 +299,25 @@ Python arrays are called lists.
 
 ## Initialization 
 ```python
-fish_num = ["one fish", "two fish"] 
+fish_nums = ["one fish", "two fish"] 
 fish_colors = [
     "red fish",
     "blue fish"
 ]
 
-print(fish_num) # ['one fish', 'two fish']
+print(fish_nums) # ['one fish', 'two fish']
 print(fish_colors) # ['red fish', 'blue fish']
 ```
 
 ## Accessing Elements
 ```python
-fish_num = ["one fish", "two fish"] 
+fish_nums = ["one fish", "two fish"] 
 
-print(fish_num[0]) # one fish
+print(fish_nums[0]) # one fish
 
-fish_num[0] = "three fish" 
+fish_nums[0] = "three fish" 
 
-print(fish_num[0]) # three fish
+print(fish_nums[0]) # three fish
 ```
 
 ## List Length 
@@ -315,4 +326,78 @@ cats = ["maxwell", "laser"]
 
 print(len(cats)) # 2
 print(len(cats[0])) # 7
+```
+## Push
+```python
+fish_nums = ["one fish", "two fish"] 
+
+fish_nums.append("three fish" )
+
+print(fish_nums) # ['one fish', 'two fish', 'three fish']
+```
+
+## Pop
+```python
+fish_nums = ["one fish", "two fish"] 
+last_num = fish_nums.pop()
+
+print(fish_nums) # ['one fish']
+print(last_num) # two fish
+```
+
+## Iterate Directly Over List (No Index / For Each)
+```python
+cats = ["Maxwell", "Laser"]
+
+for cat in cats:
+    print(f"Hello, {cat}!")
+
+# Prints:
+# Hello, Maxwell!
+# Hello, Laser! 
+```
+
+This is more readable than iterating with range, so use it whenever possible (when index isn't needed). 
+
+## Slice
+```python
+nums = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+start = 2
+stop = 9
+step = 2
+
+print(nums[ start : stop : step ]) # [2, 4, 6, 8]
+
+print(nums[start:]) # [2, 3, 4, 5, 6, 7, 8, 9, 10]
+print(nums[:stop]) # [0, 1, 2, 3, 4, 5, 6, 7, 8]
+print(nums[::step]) # [0, 2, 4, 6, 8, 10]
+
+print(nums[-start:]) # [9, 10]
+```
+
+## List Concatenation
+```python
+cats = ['Maxwell'] + ['Laser']
+print(cats) # ['Maxwell', 'Laser']
+```
+
+## Contains
+```python
+cats = ['Maxwell', 'Laser']
+print("Maxwell" in cats) # True
+print("Garfield" not in cats) # True
+```
+
+## Deleting Elements 
+```python
+colors = ["Red", "Orange", "Green", "Blue", "Indigo", "Violet"]
+
+del colors[0]
+print(colors) # ['Orange', 'Green', 'Blue', 'Indigo', 'Violet']
+
+del colors[1:3]
+print(colors) # ['Orange', 'Indigo', 'Violet']
+
+del colors[:]
+print(colors) # []
 ```
