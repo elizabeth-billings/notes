@@ -583,7 +583,8 @@ except Exception as e:
 ```
 
 ## Raising Exceptions
-Don't raise and catch your own exception in the same code block. Instead, wrap the line / block that's calling the function you raise exception in in a try / except block. 
+Don't raise and catch your own exception in the same code block. Instead, wrap the line / block that's calling the function you raise exception in in a try / except block. Always catch the most specific exceptions first, followed by more general ones. [Built-in exceptions can be found here.
+](https://docs.python.org/3/library/exceptions.html)
 
 ```python
 def get_cat_color(cat):
