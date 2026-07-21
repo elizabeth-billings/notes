@@ -601,3 +601,56 @@ except Exception as e:
 
 # Prints "invalid cat"
 ```
+
+# Type Hints
+Type hints tell human readers and the computer what types variables or arguments should be, but they don't actually stop Python from being dynamically typed or stop Python from compiling code when the wrong argument type is passed.
+
+```python
+def cat_greeting(cat_name: str, cat_age: int, is_birthday: bool):
+    if is_birthday:
+        return f"Happy Birthday, {cat_name}! I can't believe you're turning {cat_age}!"
+    else: 
+        return f"Hello, {cat_name}!"
+
+print(cat_greeting("Maxwell", 12, True)) # Happy Birthday, Maxwell! I can't believe you're turning 12!
+print(cat_greeting(True, "orange", "Maxwell")) # Happy Birthday, True! I can't believe you're turning orange!
+```
+
+## Return Types
+```python
+def is_alive(health: int) -> bool:
+    return health > 0
+
+print(is_alive(5)) # True
+print(is_alive(0)) # False 
+```
+
+## Containers
+When setting type hints for containers (list, set, dict, and tuple), also set what type of value it contains.
+
+```python
+def unique_cats(cats: list[str]) -> list[str]:
+    return list(set(cats))
+
+print(unique_cats(["Maxwell", "Maxwell", "Laser"])) # ['Maxwell', 'Laser']
+
+cat_ages: dict[str, int] = {
+    "Maxwell": 11,
+    "Laser": 8
+}
+
+cat: tuple[str, str, int, bool] = ("Maxwell", "orange", 11, True)
+```
+
+## Optional Typing (| Operator) 
+
+```python
+def get_cat_owner(cat: str) -> str | None: 
+    if (cat == "Laser"): 
+        return "Kat"
+    if (cat == "Maxwell"):
+        return "Liz"
+
+print(get_cat_owner("Laser")) # Kat
+print(get_cat_owner("Garfield")) # None 
+```
