@@ -16,6 +16,11 @@ print("Hello, world!")
 ## Whitespace
 Python uses whitespace instead of brackets. The standard is **4 spaces** or **1 tab stroke**. 
 
+## Type Of Variable
+```python
+print(type("Hello, world!")) # <class 'str'>
+```
+
 # Variables 
 
 ## Variable Decleration 
