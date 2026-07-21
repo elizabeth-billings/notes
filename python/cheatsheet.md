@@ -568,3 +568,35 @@ my_cats = {"Maxwell"}
 not_my_cats = cats_in_apartment - my_cats
 print(not_my_cats) # {'Laser'}
 ```
+
+# Exceptions
+```python
+try: 
+    1 / 0
+except Exception: 
+    print("Can't divide by 0")
+
+try: 
+    1 / 0
+except Exception as e: 
+    print(f"Exception: {e}") # Exception: division by zero
+```
+
+## Raising Exceptions
+Don't raise and catch your own exception in the same code block. Instead, wrap the line / block that's calling the function you raise exception in in a try / except block. 
+
+```python
+def get_cat_color(cat):
+    if cat == "Maxwell":
+        return "orange"
+    if cat == "Laser":
+        return "black"
+    raise Exception("invalid cat") 
+
+try:
+    get_cat_color("Frederick")
+except Exception as e:
+    print(e) 
+
+# Prints "invalid cat"
+```
