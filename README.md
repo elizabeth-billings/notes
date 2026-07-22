@@ -1,4 +1,4 @@
-# Notes
+<img width="2952" height="77" alt="image" src="https://github.com/user-attachments/assets/dc226919-5476-4e5d-ab97-438eeb1c8f2b" /># Notes
 Random notes from various tech subjects
 
 ## Currently Learning
@@ -30,6 +30,10 @@ Random notes from various tech subjects
 - Python
   - [Boot.Dev](https://www.boot.dev/)
   - [Official Docs](https://docs.python.org/3/)
+- Practice / Challenges
+  - [Free Code Camp Daily Challenge](https://www.freecodecamp.org/learn/daily-coding-challenge/archive) - Python or JavaScript
+  - [Project Euler](https://projecteuler.net/)
+  - [Advent of Code ](https://adventofcode.com/)
 - News / Blogs 
   - [Front End Dogma](https://frontenddogma.com/)
  
