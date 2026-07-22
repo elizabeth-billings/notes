@@ -1,4 +1,3 @@
-<img width="2952" height="77" alt="image" src="https://github.com/user-attachments/assets/dc226919-5476-4e5d-ab97-438eeb1c8f2b" /># Notes
 Random notes from various tech subjects
 
 ## Currently Learning
