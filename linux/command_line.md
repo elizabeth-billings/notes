@@ -1,3 +1,8 @@
+# Unix Philosophy (by Peter H. Salus, inspired by Doug McIlroy) 
+ - Write programs that do one thing and do it well.
+ - Write programs to work together.
+ - Write programs to handle text streams, because that is a universal interface.
+
 # Terminal 
 A **terminal** (or more specifically, a **terminal emulator**) is the program you type commands into and that renders text on your screen.
 
@@ -130,6 +135,18 @@ $ ls
 cat-pics/ potential_cat_names.txt
 $ ls cat-pics/
 maxwell.png laser.jpg 
+```
+
+## -l (Long) 
+Shows more info than just ls by itself 
+```bash
+$ ls -l
+```
+
+## -a (All)
+Shows hidden files
+```bash
+$ ls -a
 ```
 
 # cd (Change Directory) 
@@ -276,6 +293,11 @@ $ grep "Maxwell" good_cats.txt best_cats.txt
 $ grep -r "Maxwell" .
 ```
 
+## Exclude directories
+```bash
+$ grep -r "Maxwell" . --exclude-dir="DIR_TO_EXCLUDE"
+```
+
 # find (Search for files and directories by name) 
 
 ## Find a file by name
@@ -319,4 +341,120 @@ A **shebang** is a line at the top of scripts that tells the shell what program 
 ## Python example
 ```bash
 #!/usr/bin/python3
+```
+
+# Help
+For most published commands, help can be found by using one of the following: 
+ - Flags: --help or -help
+ - First positional argument: help
+
+```bash
+$ ls --help 
+```
+
+# Flags
+Flags are options that modify how a command behaves. 
+
+## Combining Flags
+You can combine flags, such as using -l and -a for ls. 
+```bash
+$ ls -al 
+```
+
+## Common conventions
+There are no concrete rules, but these conventions are often used: 
+ - Single dashes for single character flags (-a, -l)
+ - Double dashes for multiple character flags (--help, --reverse)
+ - Double dashes and single dash flags can sometimes have the same meaning (-a and --all)
+
+# wc (Word Count) 
+Returns the number of lines, words, and bytes in a file  
+
+```bash
+$ wc name_ideas.txt
+```
+
+## -c 
+Returns the number of byes in a file 
+```bash
+$ wc name_ideas.txt -c
+```
+
+## -l 
+Returns the number of lines in a file 
+
+## -w 
+Returns the number of words in a file 
+
+## -m
+Returns the number of characters in a file 
+
+# Exit Codes ( aka Return Codes aka Status Codes) 
+Codes returned to cofirm if a program ran succesffully or not. **0** is the code for success and **1** is sort of a catch-all error code. Rarely other codes can be returned instead. 
+
+Exit codes can be used by programs that run other programs, too. For example, if a mailers program runs a separate program for generating PDF files, a 1 code can tell the mailers program that the PDF wasn't generated, so don't send it. 
+
+## $? 
+$? stored exit code of last program you ran
+
+```bash
+$ echo "hello"
+hello
+$ echo $?
+0
+```
+
+# Running multiple commands 
+You can run multiple commands using semicolons 
+
+```bash
+$ echo "hello" ; echo $?
+hello
+0
+```
+
+## Running multiple commands conditionally
+If you only want later commands to run if previous command succeeded, use &&
+```bash
+$ "hello" && echo $?
+bash: hello: command not found                                                                                                                                                 
+```
+
+# stdout (Standard Output) 
+The default place where programs print output, like print() in python, echo in shell, or console.log() in JS. 
+
+# stderr (Standard Error) 
+Like stdout but for errors. By default prints to same place as stdout but they're separate streams so you can redirect them to different places.
+
+# Redirect Streams
+You can redirect streams using **>** for stdout and **2>** for stderr. 
+
+```bash
+$ echo "Maxwell" > kitty.txt
+$ cat kitty.txt
+Maxwell
+```
+
+```bash
+$ cat fake_file.txt 2> error.txt
+$ cat error.txt
+cat: fake_file.txt: No such file or directory
+```
+
+# stdin (Standard In)
+The default place where programs read their input, like input() for Python or Console.ReadLine() for C#. 
+
+## Redirecting Input
+< redirects a file into a program's stdin. This is different than proving a filepath as an argument where the command opens the file itself. This is instead only sending the contents of the file into the command. 
+
+```bash
+$ wc < kitty.txt
+```
+
+# Piping
+The pipe operator | takes the stdout of the program before it and enters it as the stdin of the program after it. 
+
+```bash
+$ echo "Maxwell" | wc -m
+7
 ```
