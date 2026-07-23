@@ -194,3 +194,57 @@ $ rm -r cat-pics
 $ ls
 cat_names.txt
 ```
+# cp (Copy)
+
+## Copy a file
+```bash
+$ cp file_to_copy.txt /destincation_dir
+```
+
+## Copy a directory
+```bash
+$ cp -R /directory_to_copy /destination_dir
+```
+
+# Home
+Your **home** directory is where your personal files are stored and where you start when you first log into a system. You should typically only do your development work there (such as in a "Workspace" directory in you home directory.) 
+
+## ~ (Home Alias)
+```bash
+liz/cat_pics/maxwell$ cd ~
+liz:~$
+```
+
+# grep (Search for text within files) 
+
+## Search for a string
+```bash
+$ grep "Maxwell" cats.txt 
+```
+
+## Search for a string in multiple files 
+```bash
+$ grep "Maxwell" good_cats.txt best_cats.txt
+```
+
+## Search for a string in entire directory 
+```bash
+$ grep -r "Maxwell" .
+```
+
+# find (Search for files and directories by name) 
+
+## Find a file by name
+```bash
+$ find . -name "maxwell.txt"
+```
+
+## Find all files with a given extension
+```bash
+$ find . -name "*.txt"
+```
+
+## Find file with wildcard 
+```bash
+$ find . -name "*maxwell*"
+```
