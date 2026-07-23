@@ -1,8 +1,13 @@
-# Vocab
+# Terminal 
 A **terminal** (or more specifically, a **terminal emulator**) is the program you type commands into and that renders text on your screen.
 
-A **shell** runs the commands you enter into terminal or are loaded from a file. They are also referred to as **REPLs**, which stands for Read, Eval (or Evaluate), Print, and Loop. 
+# Shell
+A **shell** runs the commands you enter into terminal or are loaded from a file. They are also referred to as **REPLs**, which stands for Read, Eval (or Evaluate), Print, and Loop. A shell also acts as interpreter for .sh files. 
 
+Some common ones: 
+ - **sh** is the Bourne Shell. It was the original Unix shell
+ - **bash** is the Bourne Again Shell. It's built on the sh and has a lot more features
+ - **zsh** is the Z Shell which is used on MacOS and has a lot more feaures like bash does 
 
 # Echo
 Prints argument to the terminal screen
@@ -34,7 +39,8 @@ liz
 
 # Variables
 
-## Creation
+## Local
+### Creation
 No spaces between name, =, and value are mandatory. 
 
 ```bash
@@ -43,11 +49,49 @@ $ echo $kitty
 Maxwell
 ```
 
-## Interpolation
+### Interpolation
 ```bash
 $ kitty="Maxwell"
 $ echo Hello, $kitty!
 Hello, Maxwell!
+```
+
+## Environment 
+Available to all programs you run in the shell 
+
+### env 
+Use to view all environment variables
+```bash
+$ env
+```
+
+### export 
+Creates an environment variable for your current session
+```bash
+$ export  KITTY="Maxwell" 
+```
+
+You can also create an environment variable for just one command instead of your whole session 
+```bash
+$ KITTY_NAME="Maxwell" bash ./kitty_zodiac_generator.sh
+```
+
+### unset
+Removes an environment variable from current session 
+```bash
+$ unset KITTY
+```
+
+## PATH
+The PATH variable lists the directories that store the commands you have installed, separated by colons. This means instead of having to find where "ls" is when you want to see what's in a directory, you can just type in "ls". 
+
+```bash
+$ echo $PATH
+```
+
+### Temporarily add to you PATH for session
+```bash
+export PATH="$PATH:/usr/kitties/maxwell" 
 ```
 
 # History
@@ -247,4 +291,32 @@ $ find . -name "*.txt"
 ## Find file with wildcard 
 ```bash
 $ find . -name "*maxwell*"
+```
+
+# which
+Gives location of an installed command line program
+
+```bash
+$ which sh
+/bin/sh 
+```
+
+# Run Executeables 
+You can run executeables by typing in just their name. If the file is in your current directory, you must include "./". 
+
+```bash
+$ ./cat_name_generator.sh 
+```
+
+# Shebangs
+A **shebang** is a line at the top of scripts that tells the shell what program to use to execute it. This is how shell can automatically run non-compiled executeables (like shell scripts). 
+
+## Format
+```bash
+#! interpreter [optional-arg]
+```
+
+## Python example
+```bash
+#!/usr/bin/python3
 ```
