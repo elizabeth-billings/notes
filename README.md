@@ -19,6 +19,7 @@ Random notes from various tech subjects
 - [ ] Web / Graphic Design
 - [ ] OWASP Top 10
 - [ ] Monitoring and Dashboards
+- [ ] Hardware 
 
 ## Index
 
