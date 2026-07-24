@@ -695,3 +695,10 @@ A "with" block automatically closes file when the block is finished.
 with open("docs/cat.txt") as f:
     cats = f.read()
 ```
+
+# Importing
+In Python **modules** are individual python files. 
+
+```python
+from cat_finder import find_cat, cats_found 
+```
