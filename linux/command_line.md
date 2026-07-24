@@ -1,3 +1,6 @@
+# Sources:
+ - [Boot.dev](https://www.boot.dev)
+
 # Unix Philosophy (by Peter H. Salus, inspired by Doug McIlroy) 
  - Write programs that do one thing and do it well.
  - Write programs to work together.
@@ -553,3 +556,37 @@ Use -R to make it recursive (for a directory) and
 ```bash
 $ chown -R root some/directory 
 ```
+# apt (Advanced Package Tool) 
+Default package manager for Ubuntu 
+
+## Upate apt
+```bash
+$ sudo apt update
+```
+## Install a package
+```bash
+$ sudo apt install neovim
+```
+
+# nvim
+**Neovim** is a modern version of vim. 
+
+```bash
+$ nvim kitty.txt
+```
+
+Common commands:
+ - **i** Insert (start editing)
+ - **Esc** Return to normal mode from insert
+ - **:w** Save changes
+ - **:q** Quit
+
+# Webi 
+[Webi](https://webinstall.dev/) is an "anti-package manager" that lets you install tools locally without needing sudo. 
+
+## lsd 
+Modern version of ls with extra features like trees. Can download it from webi! 
+
+```bash
+$ lsd --tree
+``` 
