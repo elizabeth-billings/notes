@@ -510,3 +510,46 @@ Used when SIGINT doesn't work.
 ```bash
 $ kill <pid> 
 ```
+
+# sudo (Superuser Do) 
+Runs a command as the root "superuser" (basically with administrative privileges) 
+
+```bash
+$ sudo whoami
+```
+
+# Permissionis
+Permissions are represented as 10-character strings. 
+ - The first character is a d (for directories) or - (for individual files).
+ - The next 9 characters are 3 sets of "rwx" (read, write, and execute) where unavailable permissions are replaced with - (hypens).
+ - The order of the 3 sets is owner, groups and others.
+
+For example, -rwxr--rw- is permission for a file that the owner can read, write, and execute, that the group can read, and that others can read or write. 
+
+# chmod (Change Mode)
+Change the permissions of a directory or file
+
+```bash
+$ chmod u=-,g=,o=r-x some_file.sh
+```
+
+## -R
+Use -R to change permissions for a file and everything in it
+
+```bash
+$ chmod -R u=rwx,g=,o= some/directory
+```
+
+## Make a script executeable 
+Use with caution for files that aren't from someone you trust! 
+
+```bash
+$ chmod +x conquerworld.sh
+```
+
+# chown (Change Owner)
+Use -R to make it recursive (for a directory) and 
+
+```bash
+$ chown -R root some/directory 
+```
