@@ -96,7 +96,14 @@ $ echo $PATH
 
 ### Temporarily add to you PATH for session
 ```bash
-export PATH="$PATH:/usr/kitties/maxwell" 
+$ export PATH="$PATH:/usr/kitties/maxwell" 
+```
+
+### Permanently add to you PATH 
+Several ways to do this, but common way is to add an "export" statement to you shell configuration file. 
+
+```bash
+$ export PATH="$PATH:/absolute/path/to/program"
 ```
 
 # History
@@ -351,6 +358,16 @@ For most published commands, help can be found by using one of the following:
 ```bash
 $ ls --help 
 ```
+## man
+The full manual can be found with "man"
+
+```bash
+$ man ls
+```
+To search within a manual: 
+ - Type "/" followed by what you're searching for.
+ - Type "n" to jump to next result.
+ - Type "N" to go back a result.
 
 # Flags
 Flags are options that modify how a command behaves. 
@@ -457,4 +474,14 @@ The pipe operator | takes the stdout of the program before it and enters it as t
 ```bash
 $ echo "Maxwell" | wc -m
 7
+```
+
+# Symbolic Link (symlink) 
+File that points to another file or directory, like a shortcut in a GUI filesystem
+
+## ln (Link)
+Creates a link. Use -s to create symbolic links 
+
+```bash
+$ ln -s original/path link/path
 ```
