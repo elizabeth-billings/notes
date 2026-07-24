@@ -485,3 +485,28 @@ Creates a link. Use -s to create symbolic links
 ```bash
 $ ln -s original/path link/path
 ```
+# top 
+Shows which programs are using the most resources on computer (basically task manager for the command line!) 
+
+```bash
+$ top
+```
+
+By default, top sorts by CPU useage decreasing. Press **"M"** while it's running to sort by RAM (memory) decreasing. 
+
+# SIGINT
+SIGINT is the signal that is actually sent when you press "Ctrl" + "c" to stop a program or command. It's basically an interruption request, which is different than actually terminating it. 
+
+# ps (Process Status)
+Lists the processes running along with their **PIDs** (process IDs). Use with "aux" to show all processes, even those owned by other users, and to show more information. 
+
+```bash
+$ ps aux
+```
+
+# kill
+Used when SIGINT doesn't work. 
+
+```bash
+$ kill <pid> 
+```
