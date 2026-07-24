@@ -92,6 +92,12 @@ con = "con"
 cat = "cat"
 concat = con + cat # "concat" 
 ```
+
+#### To Lower
+```python
+print("MaXwElL".lower()) #maxwell
+```
+
 ### Numbers
 ```python
 cat_count = 2 # Integer
