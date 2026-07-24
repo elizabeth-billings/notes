@@ -1,3 +1,6 @@
+# Sources
+    - [Boot.dev](https://www.boot.dev)
+
 # "The Zen of Python" by Tim Peters   
 > Beautiful is better than ugly.   
 > Explicit is better than implicit.  
@@ -681,4 +684,14 @@ def get_cat_owner(cat: str) -> str | None:
 
 print(get_cat_owner("Laser")) # Kat
 print(get_cat_owner("Garfield")) # None 
+```
+
+# Input / Output
+
+## Read from a file 
+A "with" block automatically closes file when the block is finished. 
+
+```python
+with open("docs/cat.txt") as f:
+    cats = f.read()
 ```
