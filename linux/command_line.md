@@ -1,5 +1,6 @@
 # Sources:
  - [Boot.dev](https://www.boot.dev)
+ - [Linuxize](https://linuxize.com/)
 
 # Unix Philosophy (by Peter H. Salus, inspired by Doug McIlroy) 
  - Write programs that do one thing and do it well.
@@ -590,3 +591,9 @@ Modern version of ls with extra features like trees. Can download it from webi!
 ```bash
 $ lsd --tree
 ``` 
+# curl
+Transfers data to or from a server 
+
+```bash
+$ curl example.com 
+```
