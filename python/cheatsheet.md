@@ -98,6 +98,13 @@ concat = con + cat # "concat"
 print("MaXwElL".lower()) #maxwell
 ```
 
+#### Is Alpha
+Returns true if all characters in a string are alphabetic 
+
+```python
+print("Maxwell".isalpha()) # True
+```
+
 ### Numbers
 ```python
 cat_count = 2 # Integer
@@ -734,3 +741,11 @@ In Python **modules** are individual python files.
 ```python
 from cat_finder import find_cat, cats_found 
 ```
+
+# sys
+```python
+import sys
+```
+
+## Command Line Arguments 
+
