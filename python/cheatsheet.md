@@ -490,6 +490,14 @@ cats = ["Maxwell", "Laser", "Garfield"]
 print(",".join(cats)) # Maxwell,Laser,Garfield
 ```
 
+## Sort
+```python
+cats = ["Maxwell", "Laser", "Frederick"]
+sorted_cats = sorted(cats)
+
+print(sorted_cats) #  ["Frederick", "Laser", "Maxwell"]
+```
+
 # Dictionaries 
 ```python
 cat = {
