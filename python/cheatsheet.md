@@ -498,6 +498,24 @@ sorted_cats = sorted(cats)
 print(sorted_cats) #  ["Frederick", "Laser", "Maxwell"]
 ```
 
+### Reverse Sort
+```python
+cats = ["Maxwell", "Laser", "Frederick"]
+sorted_cats = sorted(cats, reverse=True)
+
+print(sorted_cats) #  ["Maxwell", "Laser", "Frederick"]
+```
+
+### Sort Tuples
+```python
+def sort_on(some_tuple: tuple[str, int]) -> int:
+    return some_tuple[1]
+
+cat_scores = [("Maxwell", 5), ("Laser", 2), ("Frederick", 9)]
+sorted_cat_scores = sorted(cat_scores, key=sort_on)
+print(sorted_cat_scores) # [("Laser", 2), ("Maxwell", 5), ("Frederick", 9)]
+```
+
 # Dictionaries 
 ```python
 cat = {
