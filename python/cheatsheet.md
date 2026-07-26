@@ -747,5 +747,19 @@ from cat_finder import find_cat, cats_found
 import sys
 ```
 
-## Command Line Arguments 
+## argv (Command Line Arguments)
+Returns a list where the first item passed in is the script's name and the rest are arguments 
 
+```bash
+python3 my_file.py arg1 arg2
+```
+
+```python
+print(sys.argv) # ['my_file.py', 'arg1', 'arg2']
+```
+## exit
+Exit program with given code 
+
+```python
+sys.exit(1) 
+```
