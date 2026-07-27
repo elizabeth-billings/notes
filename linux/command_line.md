@@ -1,6 +1,7 @@
 # Sources:
  - [Boot.dev](https://www.boot.dev)
  - [Linuxize](https://linuxize.com/)
+ - [linux.die.net](https://linux.die.net/)
 
 # Unix Philosophy (by Peter H. Salus, inspired by Doug McIlroy) 
  - Write programs that do one thing and do it well.
@@ -591,9 +592,17 @@ Modern version of ls with extra features like trees. Can download it from webi!
 ```bash
 $ lsd --tree
 ``` 
+
 # curl
 Transfers data to or from a server 
 
 ```bash
 $ curl example.com 
+```
+
+# xxd
+Prints hexadecimal "dump" from raw bytes or prints raw bytes (binary) from hexedeciml 
+
+```bash
+$ xxd some/file
 ```
