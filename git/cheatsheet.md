@@ -18,6 +18,22 @@ How to navigate:
 - **N** previous search term
 
 # Config
+Git config stores data in key / value pairs. Each key also has a section. For example, in the below code 
+- user is the **section**
+- name is the **key**
+- liz is the **value** 
+
+```bash
+$ git config set --global user.name "liz"
+```
+
+## Locations 
+There are several levels to where git is configured and what to what scope the changes affect. If something is set in multiple locations, the most specific value is used. 
+
+- System (for all users on a system): /etc/gitconfig
+- Global (for all projects for a single user): ~/.gitconfig
+- Local (for a single project): .git/config
+- Worktree (for only a part of a single project): .git/config.worktree
 
 ## Set
 ```bash
@@ -25,9 +41,44 @@ $ git config set --global user.name "<username>"
 $ git config set --global user.email "<email>" 
 ```
 
+### append 
+Use --append to add new line and not alter any existing values 
+
+### Local
+Just omit the "--global" to set something for only the repo you're in. 
+
 ## View 
 ```bash
 $ cat ~/.gitconfig
+```
+
+### Local
+```bash
+$ git config list --local
+```
+
+### get
+```bash
+$ git config get <key> 
+```
+
+## unset
+Removes a config variable 
+
+```bash
+$ git config unset <key> 
+```
+
+### Duplicates
+git config allows duplicate keys, so be careful. You can unset all with --all
+
+```bash
+$ git config unset --all <key> 
+```
+
+## Remove section
+```bash
+$ git config remove-section <section>
 ```
 
 # init 
@@ -89,3 +140,5 @@ $ git cat-file -p <commit hash>
 
 ## Trees vs. Blobs
 Git stores directories with trees and individual files with blobs. 
+
+
