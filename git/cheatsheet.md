@@ -193,6 +193,11 @@ You can instead use switch with -c to create a new branch and switch to it immed
 $ git switch -c <branch_name>
 ```
 
+## Delete branch
+```bash
+$ git branch -d <branch_name> 
+```
+
 ## Switch branches
 ```bash
 $ git switch <branch_name>
