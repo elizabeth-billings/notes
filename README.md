@@ -2,29 +2,29 @@ Random notes from various tech subjects
 
 ## Currently Learning
 - - [ ] Boot.Dev backend course
-   - [x] Beginner Python
-   - [x] Linux
-   - [x] "Bookbot" Project
-   - [x] Git
-   - [ ] Object Oriented Programming (OOP)
-   - [ ] "Asteroids" Project
-   - [ ] Functional Programming
-   - [ ] "AI Agent" Project 
-   - [ ] Data Structures and Algorithms
-   - [ ] "Static Site Generator" Project
-   - [ ] Memory Management
-   - [ ] "Personal" Project [TBD] 
-   - [ ] Go
-   - [ ] HTTP Clients
-   - [ ] "Pokedex" Project
-   - [ ] SQL
-   - [ ] "Blog Aggregator" Project
-   - [ ] HTTP Servers
-   - [ ] File Servers and CDNs
-   - [ ] Docker
-   - [ ] Pub / Sub Architecture
-   - [ ] "Capstone" Project [TBD]
-   - [ ] Job Search 
+     - [x] Beginner Python
+     - [x] Linux
+     - [x] "Bookbot" Project
+     - [x] Git
+     - [ ] Object Oriented Programming (OOP)
+     - [ ] "Asteroids" Project
+     - [ ] Functional Programming
+     - [ ] "AI Agent" Project 
+     - [ ] Data Structures and Algorithms
+     - [ ] "Static Site Generator" Project
+     - [ ] Memory Management
+     - [ ] "Personal" Project [TBD] 
+     - [ ] Go
+     - [ ] HTTP Clients
+     - [ ] "Pokedex" Project
+     - [ ] SQL
+     - [ ] "Blog Aggregator" Project
+     - [ ] HTTP Servers
+     - [ ] File Servers and CDNs
+     - [ ] Docker
+     - [ ] Pub / Sub Architecture
+     - [ ] "Capstone" Project [TBD]
+     - [ ] Job Search 
 
 ## Backlog 
 - [ ] Databricks
