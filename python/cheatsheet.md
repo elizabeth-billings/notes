@@ -757,9 +757,57 @@ python3 my_file.py arg1 arg2
 ```python
 print(sys.argv) # ['my_file.py', 'arg1', 'arg2']
 ```
+
 ## exit
 Exit program with given code 
 
 ```python
 sys.exit(1) 
+```
+
+# Classes
+Objects are instances of a class. Class names should be capitalized while instances of the class should still be snake_case. 
+
+```python
+class Rectangle:
+    width: float = 4.0 # 
+    height: float = 4.0
+
+    def get_area(self) -> float:
+        return self.width * self.height
+
+rect = Rectangle()
+print(rect.width) # 4.0
+print(rect.get_area()) # 16.0  
+```
+
+## Self
+The first parameter of every method (basically a function inside of a class that has access to the properties inside of the class) is always "self", the instance of the class the method is being called on. Self is automatically passed to methods as the instance that it is being called on (the object before the dot operator (.) when a method is called). 
+
+## Constructors 
+```python
+class Rectangle:
+    def __init__(self, height: float, width: float) -> None: 
+        self.height = height
+        self.width = width 
+        self.is_square = height == width 
+
+rect = Rectangle(4, 4)
+print(rect.is_square) # True 
+```
+
+## Class vs. Instance Variables
+Generally, use instance variables instead of class variables. 
+
+```python
+class Rectangle:
+    sides = 4 # Class variable 
+
+    def __init__(self, height: float, width: float) -> None: 
+        self.height = height # Instance variable
+        self.width = width # Instance variable 
+        self.is_square = height == width # Instance varaible 
+
+rect = Rectangle(4, 4)
+print(rect.is_square) # True 
 ```
