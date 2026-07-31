@@ -811,3 +811,107 @@ class Rectangle:
 rect = Rectangle(4, 4)
 print(rect.is_square) # True 
 ```
+
+## Private 
+By default, all methods and properties in a class are public. Private data members allow you to encapsulate logic and data (hiding the complexity of them so that when using the class you don't have to think about what's happening within the class.) Methods and underscores beginning with two underscores are "private", but really in name only. Outside is still technically possible, just a lot less straightforward.
+
+```python
+class Cat:
+    def __init__(self, name: str, age: int) -> None:
+        self.__name = name
+        self.age = age
+
+    def get_name(self) -> str:
+        return self.__name
+
+maxwell = Cat("Maxwell", 11)
+# print(maxwell.__name) # Throws error
+print(maxwell.age) # 11
+print(maxwell.get_name()) # Maxwell
+```
+
+### Encapsulation
+
+#### Encapsulation vs. Security 
+The idea of "public" and "private" data in classes is about encapsulation, ***not*** security. Encapsulation is about organization and ease of use. Like how electric wiring is hidden and organized in walls with easy to use outlets for you to use the electricity with. You can technically ignore the outlets and access all those wires yourself but, just like with encapsulated methods and properties, it's usually a bad idea to do it like that.  
+
+#### Enforcement 
+Since Python is so dynamic, it's hard for a compiler to enforce things like encapsulation like they can in other languages like C# or Go. Encapsulation is thus mostly achieved through convention, not force. 
+
+#### Encapsulation vs. Abstraction
+Abstraction is for creating a simple interface for complex behavior and focuses on what's actually exposed (the wall outlet in the electricity analogy) while encapsulation is about hiding internal state and "tucking away" the implementation details (the electric wires being hidden and organized within the wall.) While there is a distinction between the two concepts, most of the time you're actually doing both at once. 
+
+# Inheritance
+```python
+class Pet: 
+    def __init__(self, name: str) -> None: 
+        self.__name = name 
+
+    def get_name(self) -> str: 
+        return self.__name
+
+class Cat(Pet):
+    def __init__(self, name: str, whisker_count: int) -> None:
+        super().__init__(name)
+        self.whisker_count = whisker_count
+
+class Bunny(Pet): 
+    def __init__(self, name: str, has_floppy_ears: bool) -> None: 
+        super().__init__(name) 
+        self.has_floppy_ears = has_floppy_ears
+```
+
+# Operator Overloading 
+
+## Dunder Methods
+Double underscores ("dunder") around a method name (like __init__) let you customize how built in functions work. 
+
+```python
+class Cat: 
+    def __init__(self, name: str) -> None: 
+        self.name = name 
+
+    def __add__(self, other: "Cat") -> str:
+        return f"Super {self.name} {other.name}"
+
+maxwell = Cat("Maxwell") 
+laser = Cat("Laser") 
+print(maxwell + laser) # Super Maxwell Laser
+```
+
+### Operator Method Names
+- \_\_add__ +
+- \_\_sub__ -
+- \_\_mul__ *
+- \_\_truediv__ /
+- \_\_floordiv__ //
+- \_\_pow__ **
+- \_\_mod__ %
+- \_\_lshift__ <<
+- \_\_rshift__ >>
+- \_\_and__ &
+- \_\_or__ |
+- \_\_xor__ ^
+- \_\_invert__ ~
+- \_\_eq__ ==
+- \_\_ne__ !=
+- \_\_lt__ <
+- \_\_le__ <=
+- \_\_gt__ >
+- \_\_ge__ >=
+- \_\_str__ print()
+- \_\_repr__ repr() 
+
+## Method Overloading 
+```python
+class Cat: 
+    def __init__(self, name: str, color: str) -> None: 
+        self.name = name 
+        self.color = color 
+
+    def __str__(self) -> str: 
+        return f"{self.name} the {self.color} cat"
+
+maxwell = Cat("Maxwell", "orange") 
+print(maxwell) # Maxwell the orange cat
+```
