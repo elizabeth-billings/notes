@@ -1,19 +1,32 @@
 Random notes from various tech subjects
 
 ## Currently Learning
-- [ ] Python (Boot.dev)
-
-## Backlog 
-- [ ] Boot.Dev backend course
-   - [ ] Linux
+- - [ ] Boot.Dev backend course
+   - [x] Beginner Python
+   - [x] Linux
+   - [x] "Bookbot" Project
+   - [x] Git
+   - [ ] Object Oriented Programming (OOP)
+   - [ ] "Asteroids" Project
    - [ ] Functional Programming
+   - [ ] "AI Agent" Project 
+   - [ ] Data Structures and Algorithms
+   - [ ] "Static Site Generator" Project
    - [ ] Memory Management
+   - [ ] "Personal" Project [TBD] 
    - [ ] Go
    - [ ] HTTP Clients
+   - [ ] "Pokedex" Project
+   - [ ] SQL
+   - [ ] "Blog Aggregator" Project
    - [ ] HTTP Servers
    - [ ] File Servers and CDNs
    - [ ] Docker
    - [ ] Pub / Sub Architecture
+   - [ ] "Capstone" Project [TBD]
+   - [ ] Job Search 
+
+## Backlog 
 - [ ] Databricks
 - [ ] Algorithm Design Manual
 - [ ] Web / Graphic Design
@@ -23,8 +36,23 @@ Random notes from various tech subjects
 
 ## Index
 
+### Git
+
+- [Git Cheatsheet](git/cheatsheet.md)  
+   Mostly "porcelain" commands for everyday reference
+  
+### Linux
+
+- [Linux Command Line](linux/command_line.md)  
+   Common commands and some explanation of the underlying mechanics 
+
 ### Python
-- notes/python/useful_functions_to_remember.md
+
+- [Python Cheatsheet](python/cheatsheet.md)  
+  Python syntax and fundamentals, including variables, data types, functions, operators, conditionals, loops, collections, errors, and object-oriented programming.
+
+- [Useful Python Functions to Remember](python/useful_functions_to_remember.md)  
+  A growing reference for useful but not needed everyday functions
 
 ## Favorite Resources
 - Python
