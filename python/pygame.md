@@ -27,8 +27,18 @@ For a game to actually be playable (or at least enjoyable), this needs to happen
 
 ## Event Queue 
 ```python
-for event in pygame.event.get():
-  # Game loop
-  pygame.display.flip() # updates the display 
+while True:
+        log_state()
+
+        for event in pygame.event.get():
+            # Check if game has been closed
+            if event.type == pygame.QUIT:
+                return
+
+            # Game loop logic
+            screen.fill("black")
+
+            # Update display
+            pygame.display.flip()
 ```
 
