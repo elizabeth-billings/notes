@@ -915,3 +915,25 @@ class Cat:
 maxwell = Cat("Maxwell", "orange") 
 print(maxwell) # Maxwell the orange cat
 ```
+
+# venv (Virtual Environments) 
+Each Python project should have its own virtual environment to keep dependencies separate. 
+
+## uv and venv  
+1. Create a uv project 
+```bash
+$ uv init --no-package --python <python_version> <project_name> 
+$ cd <project_name>
+```
+2. Create a virtual environment at top level of new directory
+```bash
+$ uv venv
+```
+3. Activate the virtual environment
+```bash
+$ source .venv/bin/activate
+```
+4. Add dependencies
+```bash
+$ uv add <dependency>==<dependency_version> 
+```
