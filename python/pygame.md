@@ -42,3 +42,23 @@ while True:
             pygame.display.flip()
 ```
 
+# Delta Time 
+In game development, delta time is the amount of time that has passed since the last frame was drawn. This can decouple the game's speed from the speed it's been drawn to the screen. This means that the game won't slow down or speed up when the computer that it's running on CPU slows down or speeds up. 
+
+## Set FPS 
+A clock is an object to help track time. It should be updated (with tick or tick_busy_loop, which compute how many milliseconds have passed since the last call) once per frame. 
+
+```python
+# After initializing pygame but before game loop starts
+clock = Clock()
+delta_time = 0.0
+FPS = 60 
+```
+
+```python
+# at the end of each game loop iteration
+dt = clock.tick(FPS) / 1000
+```
+
+# Sprite
+Sprite is the base class for visible game objects. 
