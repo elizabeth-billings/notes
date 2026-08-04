@@ -710,6 +710,9 @@ cat_ages: dict[str, int] = {
 }
 
 cat: tuple[str, str, int, bool] = ("Maxwell", "orange", 11, True)
+
+def process_documents(documents: tuple[str, ...]): # Means that the tuple contains any number of strings 
+...
 ```
 
 ## Optional Typing (| Operator) 
@@ -723,6 +726,15 @@ def get_cat_owner(cat: str) -> str | None:
 
 print(get_cat_owner("Laser")) # Kat
 print(get_cat_owner("Garfield")) # None 
+```
+
+## Functions 
+Callable is the type hint for functions
+```python
+def hi_maxwell(num: int) -> str:
+    return f"Hi, Maxwell time {num}"
+
+greeting: Callable[int] = hi_maxwell 
 ```
 
 # Input / Output
@@ -936,4 +948,48 @@ $ source .venv/bin/activate
 4. Add dependencies
 ```bash
 $ uv add <dependency>==<dependency_version> 
+```
+
+# Functional Programming
+Functional programming is a programming paradigm (style) where you create functions without changing data in place. It's focused on immutable data and being able to pass around and combine functions as data themselves. Python isn't a great choice for functional programming usually (languages like Haskell, OCaml, and Elixir are better suited for it), but it is possible. 
+
+## Declarative
+Functional programming should be declarative when possible, meaning that we want to tell the computer what to do not how to do it, rather than imperative, which is telling computer what to do one step after another. Think CSS instead of Javascript. 
+
+## Expressions over Statements
+Expressions are a subset of statements that return a value. They are reuseable and declarative, which means they are preferred in functional programming. 
+
+```python
+# Expressions
+print(sum([2, 4, 6, 8])) 
+
+# Statements
+total = 0
+for n in [2, 4, 6, 8]:
+    total += n
+print(total) 
+```
+
+## Ternary 
+```python
+value_a if condition else value_b
+
+# Non ternary
+if (pet == "Maxwell"):
+    print ("cat")
+else:
+    print("other")
+
+# Ternary
+print("cat" if pet == "Maxwell" else "other") 
+```
+
+## Lambda (Anonymous) Functions
+```python
+get_cat_color = lambda cat : {
+    "Maxwell": "orange",
+    "Laser": "black",
+}.get(cat, "unknown") 
+print(get_cat_color("Maxwell")) # orange
+print(get_cat_color("Garfield")) # unknown
 ```
