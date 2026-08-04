@@ -22,4 +22,25 @@ int("17", 8)    # 15  (octal)
 
 **Related:** `bin()`, `hex()`, `oct()` do the reverse (`int` -> `str`).
 
-**Tags:** #python #number-conversion #strings
+# str
+
+## `startswith(prefix[, start[, end]])`
+
+**What it does:** Checks whether a string starts with a specified prefix or any prefix in a tuple of prefixes 
+
+**Signature:** `str.startswith(prefix: str | tuple[str, ...], start: int = 0, end: int = len(s)) -> bool`
+
+**Example:**
+
+```python
+"Maxwell".startswith("Max") # True
+"Maxwell".startswith("well") # False
+```
+
+**When I'd reach for this:** Validating file names, checking URL schemes (https://), filtering records by prefixes, parsing structured text, or quickly determining string categories.
+
+**Gotchas:**
+- It's case-sensitive by default!
+- The optional start and end can be used to limit the portion of the string being checked (good for algo practice then?) 
+
+**Related:** str.endswith(), in, regex (re.match()), string slicing (s[:n] == prefix).
