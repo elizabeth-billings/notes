@@ -66,4 +66,22 @@ dt = clock.tick(FPS) / 1000
 ```
 
 # Sprite
-Sprite is the base class for visible game objects. 
+Sprite is the base class for visible game objects. You can create things like basic shapes for hitboxes (like cirlces or rectangles) that inherit from the sprite class, and then have more specific classes (such as one for player or enemies) inherit from those. 
+
+## Move Player Sprite
+```python
+def update(self, delta_time):
+        keys = pygame.key.get_pressd()
+
+        if keys[pygame.K_a]:
+                self.rotate(-delta_time)
+        if keys[pygame.K_d]:
+                self.rotate(delta_time)
+        if keys[pygame.K_w]:
+                self.move(delta_time)
+        if keys[pygame.K_s]:
+                self.move(delta_time) 
+
+```
+
+# Groups
