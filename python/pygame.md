@@ -2,6 +2,11 @@
 - [Pygame Docs](https://www.pygame.org/docs/)
 - [Boot.Dev](https://www.boot.dev)
 
+# Run game (using uv) 
+```bash
+$ uv run main.py
+```
+
 # Constants
 Create a separate module to hold constants in, such as for screen width and height. 
 
