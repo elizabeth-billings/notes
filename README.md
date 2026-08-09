@@ -1,7 +1,7 @@
 Random notes from various tech subjects
 
 ## Currently Learning
-- - [ ] Boot.Dev backend course
+- [ ] Boot.Dev backend course
      - [x] Beginner Python
      - [x] Linux
      - [x] "Bookbot" Project
@@ -25,6 +25,20 @@ Random notes from various tech subjects
      - [ ] Pub / Sub Architecture
      - [ ] "Capstone" Project [TBD]
      - [ ] Job Search 
+- [ ] *Snowflake the Definitive Guide* (2022) by Joyce Kay Avila
+     - [ ] Getting Started
+     - [ ] Creating and Managing the Snowflake Architecture
+     - [ ] Creating and Managing Snowflake Securable Database Objects
+     - [ ] Exploring Snowflake SQL Commands, Data Types, and Functions
+     - [ ] Leveraging Snowflake Access Controls
+     - [ ] Data Loading ad Unloading
+     - [ ] Implementing Data Governance, Account Security, and Data Protection and Recovery
+     - [ ] Managing Snowflake Account Costs
+     - [ ] Analyzing and Improving Snowflake Query Performance
+     - [ ] Configuring and Managing Secure Data Sharing
+     - [ ] Visualizing Data in Snowsight
+     - [ ] Workloads for the Snowflae Data Cloud
+     - [ ] Snowflake Object Naming Best Practices       
 
 ## Backlog 
 - [ ] Databricks
@@ -53,6 +67,12 @@ Random notes from various tech subjects
 
 - [Useful Python Functions to Remember](python/useful_functions_to_remember.md)  
   A growing reference for useful but not needed everyday functions
+- [Pygame](python/pygame.md)
+  Brief notes on Pygame 2.6.1
+
+### Snowflake
+- [Overview](snowflake/overview.md)
+  In progress notes on Snowflake
 
 ## Favorite Resources
 - Python
