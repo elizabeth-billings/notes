@@ -85,3 +85,40 @@ def update(self, delta_time):
 ```
 
 # Groups
+The Group class works as a container for multiple game objects. Objects can belong to more than one group. 
+
+## Creation
+```python
+drawable = pygame.sprite.Group()
+```
+
+# Add to group
+Once you add a class (as in the class itself, not an instance of it) to a group, all future instances of that class are added to that group. 
+
+```python
+Slime = (drawable, enemies) 
+```
+
+## Iterate over a group 
+```python
+for obj in drawable:
+        obj.draw(screen) 
+```
+
+## Update every member of a group 
+```python
+drawable.update(delta_time) 
+```
+
+# Collisions
+Collision detection can be super complicated depending on the shapes, but a simple-ish example is how to detect collisions between circles. 
+1. `Distance` = distance between the centers of the two circles
+2. `Radius1, Radius2` = Radiuses of the circles
+3. Circles are colliding only if `Distance <= Radius1 + Radius2`
+
+## Kill
+Sprites have built in kill class that automatically removes an object from all of its groups so that it will no longer be drawn or updated.
+
+```python
+enemy.kill() 
+```
