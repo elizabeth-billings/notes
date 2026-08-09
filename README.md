@@ -7,7 +7,7 @@ Random notes from various tech subjects
      - [x] "Bookbot" Project
      - [x] Git
      - [x] Object Oriented Programming (OOP)
-     - [ ] "Asteroids" Project
+     - [x] "Asteroids" Project
      - [ ] Functional Programming
      - [ ] "AI Agent" Project 
      - [ ] Data Structures and Algorithms
