@@ -26,7 +26,7 @@ Random notes from various tech subjects
      - [ ] "Capstone" Project [TBD]
      - [ ] Job Search 
 - [ ] *Snowflake the Definitive Guide* (2022) by Joyce Kay Avila
-     - [ ] Getting Started
+     - [x] Getting Started
      - [ ] Creating and Managing the Snowflake Architecture
      - [ ] Creating and Managing Snowflake Securable Database Objects
      - [ ] Exploring Snowflake SQL Commands, Data Types, and Functions
