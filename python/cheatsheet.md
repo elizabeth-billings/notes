@@ -983,8 +983,21 @@ else:
 # Ternary
 print("cat" if pet == "Maxwell" else "other") 
 ```
+## Functions as Values 
+In Python functions are values and can be treated like any other value. This means you can use = to assign them to variables and you can use them as arguments and returns for other functions. **First-class** functions are functions that are treated like any other value. **Higher-order** functions are functions that accepts another function as an argument or returns a function. 
 
-## Lambda (Anonymous) Functions
+```python
+def get_cat_title(name: str, color: str) -> str: 
+    return f"{name} the {color} cat" 
+
+
+def get_greeting(get_title, name: str, color: str) -> str: 
+    return f"Hello {get_title(name, color)}"
+
+print(get_greeting(get_cat_title, "Maxwell", "orange")) # Hello Maxwell the orange cat
+```
+
+### Lambda (Anonymous) Functions
 ```python
 get_cat_color = lambda cat : {
     "Maxwell": "orange",
@@ -992,4 +1005,62 @@ get_cat_color = lambda cat : {
 }.get(cat, "unknown") 
 print(get_cat_color("Maxwell")) # orange
 print(get_cat_color("Garfield")) # unknown
+```
+
+### Map 
+Applies a function to each item in an iterable and returns the resulting transformed values 
+
+```python
+cats = ["Maxwell", "Laser"]
+
+print("\n".join(list(map(lambda cat : f"Hello {cat}", cats))))
+
+# Hello Maxwell
+# Hello Laser
+```
+
+### Filter
+Selects and returns only the items in an iterable that satisfy a given condition
+
+```python
+cats = [("Maxwell", "orange"), ("Laser", "black"), ("Garfield", "orange")]
+
+print(list(filter(lambda cat : cat[1] == "orange", cats))) # [('Maxwell', 'orange'), ('Garfield', 'orange')]
+```
+
+### Reduce
+Combines all items in an iterable into a single accumulated result by repeatedly applying a function
+
+```python
+import functools
+
+cats = [("Maxwell", 11), ("Laser", 8), ("Garfield", 48)]
+
+def total_age(total: int, curr: tuple[str, int]) -> int:
+    return total + curr[1]
+
+print(functools.reduce(total_age, cats, 0)) #67
+```
+
+### Zip
+Groups corresponding elements from two or more iterables together into tuples, stopping when the shortest iterable is exhausted
+
+```python
+cats = ["Maxwell", "Laser"]
+colors = ["orange", "black"]
+
+cat_colors = list(zip(cats, colors))
+
+print(cat_colors) # [("Maxwell", "orange"), ("Laser", "black")]
+```
+
+#### Unzip
+
+```python
+cat_colors = [("Maxwell", "orange"), ("Laser", "black")]
+
+cats, colors = zip(*cat_colors)
+
+print(cats) # ["Maxwell", "Laser"]
+print(colors) # ["orange", "black"]
 ```
