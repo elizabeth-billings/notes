@@ -31,7 +31,7 @@ Random notes from various tech subjects
      - [ ] Creating and Managing Snowflake Securable Database Objects
      - [ ] Exploring Snowflake SQL Commands, Data Types, and Functions
      - [ ] Leveraging Snowflake Access Controls
-     - [ ] Data Loading ad Unloading
+     - [ ] Data Loading and Unloading
      - [ ] Implementing Data Governance, Account Security, and Data Protection and Recovery
      - [ ] Managing Snowflake Account Costs
      - [ ] Analyzing and Improving Snowflake Query Performance
