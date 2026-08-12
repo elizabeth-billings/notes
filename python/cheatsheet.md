@@ -983,6 +983,7 @@ else:
 # Ternary
 print("cat" if pet == "Maxwell" else "other") 
 ```
+
 ## Functions as Values 
 In Python functions are values and can be treated like any other value. This means you can use = to assign them to variables and you can use them as arguments and returns for other functions. **First-class** functions are functions that are treated like any other value. **Higher-order** functions are functions that accepts another function as an argument or returns a function. 
 
@@ -1064,3 +1065,62 @@ cats, colors = zip(*cat_colors)
 print(cats) # ["Maxwell", "Laser"]
 print(colors) # ["orange", "black"]
 ```
+
+## Pure Functions
+**Pure functions** are functions that always return the same output for the same inputs and have no side effects. Side effects are any observable effect a function has outside of returning a value. This includes printing to the console, writing to a file, modifying a global variable, changing an object passed into the function, making a network request, updating a database, etc. 
+
+It would be impossible to never write impure functions, but **whenever possible you should try to use pure functions instead of impure functions**. Try to contain impure functions, like i/o, to clear places in your code. 
+
+### No-op (aka NOP or NOOP) 
+A **no-op** is a function that does nothing. All functions are pure, impure, or no-ops. 
+
+## Reference vs. Value 
+Lists, dictionaries, and sets are passed as references (pointers), while integers, floats, strings, booleans, and **tuples** are passed by value. This means that you need to use copy() to make clean copies of lists, dictionaries, and sets, but can just assign the rest to a new variable to make copies. 
+
+```python
+def cat_info(name, info): 
+    new_name = name 
+    new_name = new_name.upper() 
+    
+    new_info = info
+    new_info.append("angelic")
+
+cat = "Maxwell"
+info = ["orange", "tabby", "fat"] 
+cat_info(cat, info) 
+print(cat) # Maxwell 
+print(info) # ['orange', 'tabby', 'fat', 'angelic']
+```
+
+## Memoization 
+**Memoization** means caching the results of a computation so that it doesn't need to be computed again in the future. It's used for optimization, but it's a tradeoff between memory and speed, so you should only use it if your function is slow. 
+
+```python
+memos = dict() 
+
+def get_name_length(name, memos): 
+    new_memos = memos.copy()
+    if name in new_memos: 
+        print("Memo'ed!")
+        return new_memos[name], new_memos
+    new_memos[name] = len(name)
+    return new_memos[name], new_memos
+
+
+maxwell = "Maxwell"
+laser = "Laser" 
+length = 0
+
+length, memos = get_name_length(maxwell, memos) 
+print(length) # 7 
+length, memos = get_name_length(laser, memos) 
+print(length) # 5 
+length, memos = get_name_length(maxwell, memos) 
+print(length) 
+# Memo'ed!
+# 7
+print(memos) # {'Maxwell': 7, 'Laser': 5}
+```
+
+### Referential Transparency
+**Referential transparency** means that a function can always be replaced with its resulting value without changing the program's behavior. Since pure functions always return the same output for the same input, they are always referentially pure. Only referentially transparent functions can be safely memoized. 
