@@ -376,13 +376,20 @@ print(len(cats)) # 2
 print(len(cats[0])) # 7
 ```
 
-## Push
+## Append (Push) 
 ```python
 fish_nums = ["one fish", "two fish"] 
 
 fish_nums.append("three fish" )
 
 print(fish_nums) # ['one fish', 'two fish', 'three fish']
+```
+
+## Extend (Append another list) 
+```python
+cats = ["Maxwell"]
+cats.extend(["Laser", "Frederick"])
+print(cats) # ['Maxwell', 'Laser', 'Frederick']
 ```
 
 ## Pop
@@ -486,6 +493,11 @@ print(msg.split()) # ['I', 'love', 'cats!']
 
 cats = "Maxwell,Laser,Garfield"
 print(cats.split(",")) # ['Maxwell', 'Laser', 'Garfield']
+
+cats = "Maxwell,Laser,Frederick"
+first_cat, other_cats = cats.split(",", maxsplit = 1)
+print(first_cat) # Maxwell
+print(other_cats) # Laser,Frederick
 ```
 
 ## Join List to String
@@ -1124,3 +1136,44 @@ print(memos) # {'Maxwell': 7, 'Laser': 5}
 
 ### Referential Transparency
 **Referential transparency** means that a function can always be replaced with its resulting value without changing the program's behavior. Since pure functions always return the same output for the same input, they are always referentially pure. Only referentially transparent functions can be safely memoized. 
+
+## Recursion 
+Recursion is important in functional programming because it allows you to iterate over lists or other collections without using stateful loops. It's also very useful for looping over trees, since you don't always know how deeply they're nested. Because Python doesn't support tail call optimization, though, it's usually more performant to just use a for loop for regular iterables. 
+
+```python
+def total_age(cats: list[tuple[str, int]]) -> int: 
+    if len(cats) == 0:
+        return 0
+    return cats[0][1] + total_age(cats[1:])
+
+cats = [("Maxwell", 11), ("Laser", 8), ("Garfield", 48)]
+print(total_age(cats)) # 67
+```
+
+## Function Transformations
+**Function transformations** are higher-order functions that take one or more function as input and return one or more *new* function. Creating variations of the same functionality dynamically with function transformations can make it a lot easier to share common functionality. 
+
+```python
+from collections.abc import Callable
+
+def greeting(name: str) -> str: 
+    return f"Hello, {name}"
+
+def cat_title(name, color) -> str: 
+    return f"{name} the {color} cat!"
+
+def crow_title(name, size) -> str: 
+    return f"{name} the {size} crow!"
+
+def greet_with_title(greeting: Callable[[str], str], title: Callable[[str, str], str]) -> Callable[[str, str], str]: 
+    def combine(name: str, adjective: str) -> str: 
+        return title(greeting(name), adjective) 
+
+    return combine
+
+cat_greeting = greet_with_title(greeting, cat_title)
+crow_greeting = greet_with_title(greeting, crow_title) 
+
+print(cat_greeting("Maxwell", "orange")) # Hello, Maxwell the orange cat!
+print(crow_greeting("Horace", "large")) # Hello, Horace the large crow!
+```
