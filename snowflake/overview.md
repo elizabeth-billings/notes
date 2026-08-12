@@ -68,6 +68,13 @@ Snowflake hosts events, like Data for Breakfast (in-person, early in the year), 
 - Don't use a name for one object that's already being used by another object (ex. don't give a temporary table the same name as a permanent table even though it's technically possible to)
 - Don't use reserved words
   - account, all, alter, and, any, as, between, by, case, cast, check, column, connect, connection, constraint, create, cross, current, database, delete, distinct, drop, else, exists, false, following, for, from, full, grant, group, gscluster, having, ilike, in, increment, inner, insert, intersect, into, is, issue, join, lateral, left, like, localtime, localtimestamp, minus, natural, not, null, of, on, or, order, organization, qualify, regexp, revoke, right, rlike, row, rows, sample, schema, select, set, some, start, table, tablesample, then, to, trigger, true, try_cast, union, unique, update, using, values, view, when, whenever, where, window, with
+ 
+## Definitions
+- **Data concurrency** - allowing multiple users to affect multiple transactions within a database
+- **Results cache** - copy of expected query results
+- **Scaling out** - Adding more clusters to a warehouse 
+- **Scaling up** - Resizing a warehouse to be bigger
+- **Virtual warehouse** (aka **Snowflake compute cluster**) - A dynamic cluster of compute resources consisting of CPU memory and temporary storage 
 
 ## Auto Format SQL 
 CTRL + ALT + O or hit ... in top right of editor and select "Format SQL". 
@@ -89,3 +96,47 @@ You can set the context for a worksheet by using `USE` for roles, warehouses, an
 USE DATABASE <database_name> 
 ```
 
+# Architecture 
+Snowflake's architecture physically separates storage and compute but still logically integrates them. It also can provide services like security and management. 
+
+## Cloud Services Layer
+The "brain" where all interacting with data begin. It's a collection of services including:
+- authentication
+- access control
+- encryption
+- SQL query optimizer 
+
+It's responsible for managing data security, storing metadata for things like query optimization or data filtering, and storing the result cache. It runs across multiple availability zones in each cloud provider region. Like all of the snowflake layers, it scales independently of the other layers in an automated process that doesn't need to be done by the end user. 
+
+### Billing for Cloud Services 
+Cloud service consumption is usually built into Snowflake pricing, but when a customer exceeds 10% of their daily compute credit usage (calculated in UTC), they are billed for the coverage.  
+
+Common reasons for cloud services costs: 
+- Using several simple queries, especially those accessing session info or using session variables
+- Using large / complex queries with many joins
+- Single row inserts
+- Using commands on the INFORMATION_SCHEMA
+- Using partner tools, such as those using the JDBC driver
+
+## Compute Layer (Query Processing / Virtual Warehouse) 
+Compute resources are created and deployed on demand. Most SQL queries and all DML operations require a running virtual warehouse. Because each Snowflake virtual warehouse operates independently and without sharing compute resources, any virtual warehouse can access the same data as another data warehouse without any contention or impact on performance for the other warehouses. When it's running, a virtual warehouse is always costing money, but they can be started, stopped, or resized at any time. 
+
+### Virtual Warehouse Size
+Warehouses can be larger than 4X. The credits per hour still increase by a factor of 2, but the approach for determining the number of servers per cluster is different. 
+
+| Size | Servers per Cluster | 
+| ---- | ------------------- | 
+| X-Small | 1 | 
+| Small | 2 | 
+| Medium | 4 | 
+| Large | 8 | 
+| X-Large | 16 | 
+| 2X-Large | 32 | 
+| 3X-Large | 64 | 
+| 4X-Large | 128 | 
+
+
+
+## Data Storage Layer (Centralized / Hybrid Columnar Database) 
+
+## Caching 
