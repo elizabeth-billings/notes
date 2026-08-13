@@ -1104,6 +1104,21 @@ print(cat) # Maxwell
 print(info) # ['orange', 'tabby', 'fat', 'angelic']
 ```
 
+### Deep copy nested collections
+```python
+import copy
+
+cat_groups = [["Maxwell", "Laser"], "Garfield", ["Frederick",  "Walden"]]
+
+cat_groups_shallow = cat_groups.copy()
+cat_groups_deep = copy.deepcopy(cat_groups) 
+
+cat_groups_shallow[0].append("Shallow")
+cat_groups_deep[0].append("Deep")
+
+print(cat_groups) # [['Maxwell', 'Laser', 'Shallow'], 'Garfield', ['Frederick', 'Walden']]
+```
+
 ## Memoization 
 **Memoization** means caching the results of a computation so that it doesn't need to be computed again in the future. It's used for optimization, but it's a tradeoff between memory and speed, so you should only use it if your function is slow. 
 
@@ -1176,4 +1191,45 @@ crow_greeting = greet_with_title(greeting, crow_title)
 
 print(cat_greeting("Maxwell", "orange")) # Hello, Maxwell the orange cat!
 print(crow_greeting("Horace", "large")) # Hello, Horace the large crow!
+```
+
+## Closures 
+A **closure** is a function that references variables from outside its own body. The function body and its environment are bundled together into a single entity. Closures basically allow you to save the state of a function at a particular point in time so that you can use and update that state later. 
+
+```python
+from collections.abc import Callable
+
+def unique_counter() -> Callable[[str], int]: 
+    known_names = set()
+    count = 0 
+
+    def checker(name: str) -> int:
+        if name not in known_names:
+            known_names.add(name)
+            nonlocal count
+            count += 1
+        return count
+
+    return checker
+
+unique_cat_counter: Callable[[str], int] = unique_counter()
+print(unique_cat_counter("Maxwell")) # 1
+print(unique_cat_counter("Laser"))  # 2 
+print(unique_cat_counter("Maxwell")) # 2 
+print(unique_cat_counter("Frederick")) # 3 
+print(unique_cat_counter("Frederick"))  # 3 
+```
+
+### nonlocal
+The `nonlocal` keyword is needed to rebind a variable from an enclosing scope, but when you mutate it. 
+
+```python
+def main_function():
+    nums = [1, 2, 3]
+    name = "1 to 3"
+
+    def helper():
+        nums.append(4)
+        nonlocal name
+        name = "1 to 4" 
 ```
