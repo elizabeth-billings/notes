@@ -52,7 +52,7 @@ Random notes from various tech subjects
 
 ### Git
 
-- [Git Cheatsheet](git/cheatsheet.md)  
+- [Reference](git/reference.md)  
    Mostly "porcelain" commands for everyday reference
   
 ### Linux
@@ -62,7 +62,7 @@ Random notes from various tech subjects
 
 ### Python
 
-- [Python Cheatsheet](python/cheatsheet.md)  
+- [Reference](python/reference.md)  
   Python syntax and fundamentals, including variables, data types, functions, operators, conditionals, loops, collections, errors, and object-oriented programming.
 
 - [Useful Python Functions to Remember](python/useful_functions_to_remember.md)  
@@ -71,7 +71,7 @@ Random notes from various tech subjects
   Brief notes on Pygame 2.6.1
 
 ### Snowflake
-- [Overview](snowflake/overview.md)
+- [Reference](snowflake/reference.md)
   In progress notes on Snowflake
 
 ## Favorite Resources
