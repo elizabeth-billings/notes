@@ -1193,7 +1193,7 @@ print(cat_greeting("Maxwell", "orange")) # Hello, Maxwell the orange cat!
 print(crow_greeting("Horace", "large")) # Hello, Horace the large crow!
 ```
 
-## Closures 
+### Closures 
 A **closure** is a function that references variables from outside its own body. The function body and its environment are bundled together into a single entity. Closures basically allow you to save the state of a function at a particular point in time so that you can use and update that state later. 
 
 ```python
@@ -1220,7 +1220,7 @@ print(unique_cat_counter("Frederick")) # 3
 print(unique_cat_counter("Frederick"))  # 3 
 ```
 
-### nonlocal
+#### nonlocal
 The `nonlocal` keyword is needed to rebind a variable from an enclosing scope, but when you mutate it. 
 
 ```python
@@ -1232,4 +1232,19 @@ def main_function():
         nums.append(4)
         nonlocal name
         name = "1 to 4" 
+```
+
+### Currying
+**Function currying** is a kind of function transformation where a single function that accepts multiple arguments is translated into multiple functions that each accept a single argument. 
+
+```python
+def multiply(x):
+        def multiply_by(y):
+            return x * y
+        return multiply_by
+
+double = multiply(2)
+
+print(double(5)) # 10
+print(multiply(3)(4)) # 12
 ```
