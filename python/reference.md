@@ -1235,7 +1235,7 @@ def main_function():
 ```
 
 ### Currying
-**Function currying** is a kind of function transformation where a single function that accepts multiple arguments is translated into multiple functions that each accept a single argument. 
+**Function currying** is a kind of function transformation where a single function that accepts multiple arguments is translated into multiple functions that each accept a single argument. Currying is useful when you need a function's signature to conform to a specific "shape" or when you have a general function with several arguments but you repeatedly use it with some of those arguments fixed. 
 
 ```python
 def multiply(x):
