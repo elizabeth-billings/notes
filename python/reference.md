@@ -105,6 +105,11 @@ Returns true if all characters in a string are alphabetic
 print("Maxwell".isalpha()) # True
 ```
 
+#### Replace
+```python
+
+```
+
 ### Numbers
 ```python
 cat_count = 2 # Integer
