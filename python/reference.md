@@ -768,7 +768,8 @@ print(get_cat_owner("Garfield")) # None
 ```
 
 ## Functions 
-Callable is the type hint for functions
+Callable is the type hint for functions. ```Callable[..., object]``` is the most general type hint for a function, meaning that it's a function that takes any arguments and returns anything. 
+
 ```python
 def hi_maxwell(num: int) -> str:
     return f"Hi, Maxwell time {num}"
@@ -1341,4 +1342,64 @@ print_arguments("Maxwell", "Laser", day = "Monday", temperature = "82 °F", is_t
    - temperature : 82 °F
    - is_true : False
 """
+```
+
+#### LRU Cache
+```functools.lru_cache``` is an example of memoization and is a decorator. LRU (least recently used) caches store items up to a certain size limit. When it's full it deletes the least recently used items to store new items. The ```lru_cache``` memoizes the inputs and outputs of the decorated function to speed up repeated calls to a slow function (like functions that read from disk, make netwok requests, or require a lot of computation) with the same inputs. 
+
+```python
+from functools import lru_cache
+
+@lru_cache()
+def get_name_length(name: str) -> int:
+    return len(name) 
+
+maxwell = "Maxwell" 
+laser = "Laser"
+
+# Running function
+print(get_name_length(maxwell)) # 7
+print(get_name_length(laser)) # 5
+
+# Pulling from cache 
+print(get_name_length(maxwell)) # 7
+
+print(get_name_length.cache_info()) # CacheInfo(hits=1, misses=2, maxsize=128, currsize=2)
+```
+
+## Sum Types
+(**Important note!** Python doesn't actually support sum types, this is just a workaround!)  
+**Sum types** let a value be one of several alternatives. They have a fixed number of possible values while **product types** can have many, often infinite, combinations. 
+
+```python
+class Character:
+    def __init__(self, name: str) -> None:
+        self.name = name
+
+class Fighter(Character): 
+    pass
+
+class Thief(Character): 
+    pass
+
+class Mage(Character): 
+    pass 
+
+def get_starting_weapon(player: Character): 
+    if isinstance(player, Fighter): 
+        return "a rusty broadsword"
+    elif isinstance(player, Thief):
+        return "an old dagger"
+    elif isinstance(player, Mage):
+        return "a cracked magic medallion"
+    else: 
+        raise ValueError("invalid character type") 
+
+player_character = Fighter("Adam") 
+sidekick = Mage("Orko") 
+king = Character("Randor")
+
+print(get_starting_weapon(player_character)) # a rusty broadsword
+print(get_starting_weapon(sidekick)) # a cracked magic medallion
+print(get_starting_weapon(king)) # throws ValueError: invalid character type
 ```
