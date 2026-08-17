@@ -463,6 +463,28 @@ del colors[:]
 print(colors) # []
 ```
 
+## Min and Max 
+This works for any type of iterable.
+
+```python
+cats = ["Maxwell", "Laser", "Garfield"]
+ages = [11, 8, 48]
+
+print(min(cats)) # Garfield
+print(max(cats)) # Laser
+
+print(min(ages)) # 8
+print(max(ages)) # 48
+```
+
+### Min and Max with Multiple Arguments
+```python
+nums = [235, 1999, 2000]
+
+print(min(nums, 100)) # 100
+print(max(nums, 100)) # 2000 
+```
+
 ## Tuples
 **Tuples** are lists with a fixed size. Since they have a fixed size, it's considered okay to store different types of data in the same tuple. 
 
@@ -1252,4 +1274,71 @@ double = multiply(2)
 
 print(double(5)) # 10
 print(multiply(3)(4)) # 12
+```
+
+### Decorators 
+**Decorators** are syntactic sugar for function transformations using ```@```. ```@``` syntax can be read like: 
+
+```python
+@some_decorator
+def my_function():
+```
+
+Take ```my_function```, give it to ```some_decorator```, and replace ```my_function``` with whatever comes back. 
+
+```python
+from collections.abc import Callable
+
+def add_greeting(name: str) -> str: 
+    return f"Hello, {name}"
+
+def prepend_name_formatter(greeting: Callable[[str], str]) -> Callable[[Callable[[str, str], str]], Callable[[str, str], str]]: 
+    def decorator(title: Callable[[str, str], str]) -> Callable[[str, str], str]: 
+        def wrapper(name: str, adjective: str) -> str: 
+            return title(greeting(name), adjective)
+
+        return wrapper
+
+    return decorator
+
+@prepend_name_formatter(add_greeting)
+def cat_greeting(name: str, color: str) -> str: 
+    return f"{name} the {color} cat!"
+
+@prepend_name_formatter(add_greeting) 
+def crow_greeting(name: str, size: str) -> str: 
+    return f"{name} the {size} crow!" 
+
+print(cat_greeting("Maxwell", "orange")) # Hello, Maxwell the orange cat!
+print(crow_greeting("Horace", "large")) # Hello, Horace the large crow!
+```
+
+#### Args and Kwargs 
+```*args and **kwargs``` let you pass an unspecified number of arguments to a function. ```*args``` collects any number of positional arguments into a tuple so that a function can accept any number of values while ```**kwargs``` collects any number of keyword arguments into a dictionary so that a function can accept any named parameters. Basically:
+- *args → "extra positional arguments" → tuple
+- **kwargs → "extra keyword arguments" → dictionary
+
+```python
+def print_arguments(*args: object, **kwargs: object) -> None: 
+    print("*args:")
+    for arg in args:
+        print(f"  - {arg}")
+    print("")
+    print("**kwargs:")
+    for kwarg in kwargs: 
+        print(f"   - {kwarg} : {kwargs[kwarg]}")
+
+
+print_arguments("Maxwell", "Laser", day = "Monday", temperature = "82 °F", is_true = False)
+
+"""
+*args:
+  - Maxwell
+  - Laser
+
+**kwargs:
+   - day : Monday
+   - temperature : 82 °F
+   - is_true : False
+"""
 ```
