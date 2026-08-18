@@ -1403,3 +1403,83 @@ print(get_starting_weapon(player_character)) # a rusty broadsword
 print(get_starting_weapon(sidekick)) # a cracked magic medallion
 print(get_starting_weapon(king)) # throws ValueError: invalid character type
 ```
+
+### Union Types
+Instead of using workaround, you can use **union types** for the type hints to describe a value that may be one type or another. Union types in Python are used commonly for optional values (like ```int | None```) and in functional programming for things like making it explicit that will be some value or none or that there will be a result from a function or an error. It's important to remember though that these are really just hints and are not enforced at runtime. 
+
+```python
+def get_starting_weapon(player: Fighter | Mage | Thief): 
+    if isinstance(player, Fighter): 
+        return "a rusty broadsword"
+    elif isinstance(player, Thief):
+        return "an old dagger"
+    elif isinstance(player, Mage):
+        return "a cracked magic medallion"
+    else: 
+        raise ValueError("invalid character type") 
+
+king = Character("Randor")
+print(get_starting_weapon(king)) # editor has red squiggly line under "king" and throws ValueError: invalid character type
+```
+
+### Enums
+**Enums** (enumerations) define a set of named constant values. Enums can be defined using = operator or with a manual class-based system. The class-based system if generally preferred because it creates distinct, strongly based members rather than plain variables, is more readable, and you can customize the behavior better. 
+
+#### Functional API Usage
+```python
+from enum import Enum
+
+CreativeColor = Enum("CreativeColor", "RED", "ORANGE", "YELLOW", "BLUE", "INDIGO", "VIOLET")
+
+print(CreativeColor.RED) # CreativeColor.RED
+print(CreativeColor.GREEN) # AttributeError: type object 'CreativeColor' has no attribute 'GREEN'    
+```
+
+#### Manual Class-Based Usage 
+```python
+from enum import Enum
+
+class CreativeColor(Enum): 
+    RED = "red" 
+    ORANGE = "orange"
+    YELLOW = "yellow"
+    BLUE = "blue"
+    INDIGO = "indigo"
+    VIOLET = "violet"
+    
+print(CreativeColor.RED) # CreativeColor.RED
+print(CreativeColor.GREEN) # AttributeError: type object 'CreativeColor' has no attribute 'GREEN'
+```
+
+#### Match Statements 
+Python has match statements that are easier to read than a lot of if/elif/else statements and are great for enums. You can also use tuples to match more than one enum. 
+
+```python
+from enum import Enum
+
+class Color(Enum):
+    ORANGE = 1
+    BLACK = 2 
+
+class Size(Enum):
+    SKINNY = 1
+    CHONKY = 2
+
+def get_cat(color: Color, size: Size): 
+    match (color, size): 
+        case (Color.ORANGE, Size.SKINNY): 
+            return "Murtaugh" 
+        case (Color.ORANGE, Size.CHONKY):
+            return "Maxwell"
+        case (Color.BLACK, Size.SKINNY):
+            return "Laser"
+        case (Color.BLACK, Size.CHONKY):
+            return "Lucifer" 
+        
+        # Invalid (default) case 
+        case _:
+            return "Schrödinger"
+
+print(get_cat(Color.ORANGE, Size.CHONKY)) # Maxwell
+print(get_cat(Color.GRAY, Size.SKINNY)) # AttributeError: type object 'Color' has no attribute 'GRAY'
+```
