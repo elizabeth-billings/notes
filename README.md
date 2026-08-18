@@ -38,7 +38,7 @@ Random notes from various tech subjects
      - [ ] Configuring and Managing Secure Data Sharing
      - [ ] Visualizing Data in Snowsight
      - [ ] Workloads for the Snowflae Data Cloud
-     - [ ] Snowflake Object Naming Best Practices       
+     - [x] Snowflake Object Naming Best Practices       
 
 ## Backlog 
 - [ ] Databricks
