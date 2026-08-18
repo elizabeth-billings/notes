@@ -8,7 +8,7 @@ Random notes from various tech subjects
      - [x] Git
      - [x] Object Oriented Programming (OOP)
      - [x] "Asteroids" Project
-     - [ ] Functional Programming
+     - [x] Functional Programming
      - [ ] "AI Agent" Project 
      - [ ] Data Structures and Algorithms
      - [ ] "Static Site Generator" Project
