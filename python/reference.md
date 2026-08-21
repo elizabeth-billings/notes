@@ -189,6 +189,15 @@ import math
 print("Logarithm base 2 of 8 is: ", math.log(8, 2)) #Logarithm base 2 of 8 is:  3.0
 ```
 
+### Factorials 
+The factorial of a positive integer ```n``` (```n!```) is the product of all positive integers less than and equal to ```n```. This is very useful for counting how many different ways items can be ordered (permutations) or for "n choose k" problems. 
+
+```python
+import math
+
+print(math.factorial(5)) # 120
+```
+
 ## Modulo
 ```python
 print(8 % 3) # 2
