@@ -180,6 +180,15 @@ print(11 // 2) # 5
 print(2 ** 3) # 8
 ```
 
+### Logarithms 
+Logarithms are the inverses of exponents. For example, log₂8, read "log base 2 of 8" means "the number of times 2 must be multiplied by itself to equal 8. 
+
+```python
+import math
+
+print("Logarithm base 2 of 8 is: ", math.log(8, 2)) #Logarithm base 2 of 8 is:  3.0
+```
+
 ## Modulo
 ```python
 print(8 % 3) # 2
