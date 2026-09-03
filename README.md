@@ -22,6 +22,7 @@ Random notes from various tech subjects
      - [ ] HTTP Servers
      - [ ] File Servers and CDNs
      - [ ] Docker
+     - [ ] Web Security
      - [ ] Pub / Sub Architecture
      - [ ] "Capstone" Project [TBD]
      - [ ] Job Search 
