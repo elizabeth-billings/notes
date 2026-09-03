@@ -20,8 +20,6 @@ Data structures and algorithms don't need to be memorized, but you need to have 
 
 These notations describe how an algorithm's runtime or memory usage grows as the input size (`n`) increases. They help us analyze an algorithm's efficiency without worrying about hardware or exact execution times.
 
----
-
 ## Big O: O(f(n))
 
 ### What It Means
@@ -134,3 +132,6 @@ Lower Bound ≤ Exact Growth ≤ Upper Bound
 **Fastest → Slowest Growth**
 
 O(1) → O(log n) → O(n) → O(n log n) → O(n²) → O(n³) → O(2ⁿ) → O(n!)
+
+# Sorting Algorithms
+
