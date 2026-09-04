@@ -580,6 +580,28 @@ sorted_cat_scores = sorted(cat_scores, key=sort_on)
 print(sorted_cat_scores) # [("Laser", 2), ("Maxwell", 5), ("Frederick", 9)]
 ```
 
+### Sort with Key
+```python
+class Cat:
+    def __init__(self, name: str, age: int) -> None:
+        self.name = name
+        self.age = age
+
+    def __repr__(self) -> str:
+        return f"({self.name}, {self.age}, {past_lives(self)})"
+
+def past_lives(cat: Cat) -> int: 
+    return (cat.age * len(cat.name) - 1) % 9 + 1
+
+def past_lives_sort(cats: list[Cat]) -> list[Cat]: 
+    return sorted(cats, key=past_lives) 
+
+cats = [Cat("Maxwell", 11), Cat("Laser", 8), Cat("Garfield", 48)]
+sorted_cats = past_lives_sort(cats)
+
+print(sorted_cats) # [(Laser, 8, 4), (Maxwell, 11, 5), (Garfield, 48, 6)]
+```
+
 # Dictionaries 
 ```python
 cat = {
