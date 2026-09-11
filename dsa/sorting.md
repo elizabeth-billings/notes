@@ -1,3 +1,6 @@
+# Sources
+- [Boot.dev DSA course](https://www.boot.dev/)
+
 # Sorting Algorithms
 
 ## Bubble Sort - O(n²)
