@@ -1,7 +1,118 @@
 # Sources
 - [Boot.dev DSA course](https://www.boot.dev/)
 
-# Sorting Algorithms
+# Notable Algorithms
+
+## TimSort
+Hybrid sorting algorithm combining Insertion Sort and Merge Sort.
+
+### Characteristics
+- Stable
+- Adaptive
+- In-place for small runs, requires O(n) auxiliary space overall
+- O(n) best case
+- O(n log n) average/worst case
+
+### How It Works
+1. Detect naturally sorted runs in the input.
+2. Extend short runs using Insertion Sort.
+3. Merge runs together efficiently.
+
+### Used By
+- Python's `list.sort()`
+- Python's `sorted()`
+
+### When to Know:
+- Useful to understand why Python performs very well on partially sorted data.
+
+## PowerSort
+A near-optimal merge policy for run-based sorting algorithms.
+
+### Characteristics
+- Stable
+- Adaptive
+- O(n log n) worst case
+- Exploits existing sorted runs
+
+### How It Works
+1. Detect runs similarly to TimSort.
+2. Calculate a "power" value for run boundaries.
+3. Use those powers to determine an efficient merge order.
+
+### Used By
+- Python 3.11+ merge strategy
+- NumPy
+
+### When to Know
+- Mostly important for understanding modern implementations of TimSort-like sorting.
+
+## Introsort
+Hybrid sorting algorithm combining Quick Sort, Heap Sort, and Insertion Sort.
+
+### Characteristics
+- In-place
+- Not stable
+- O(n log n) worst case
+- Very fast in practice
+
+### How It Works
+1. Start with Quick Sort.
+2. If recursion becomes too deep, switch to Heap Sort.
+3. Use Insertion Sort for very small partitions.
+
+### Used By
+- C++ `std::sort()`
+
+### When to Know
+- Common example of a production sorting algorithm that avoids Quick Sort's O(n²) worst case.
+
+## Shell Sort
+Improved version of Insertion Sort that compares elements far apart before comparing adjacent elements.
+
+### Characteristics
+- In-place
+- Not stable
+- Performance depends on gap sequence
+- Worst case varies by implementation
+
+### How It Works
+1. Choose a gap value.
+2. Perform insertion-sort-like passes using that gap.
+3. Repeatedly decrease the gap until it reaches 1.
+
+### Advantages
+- Simpler than Merge Sort or Quick Sort.
+- Often much faster than basic O(n²) sorting algorithms.
+
+### When to Know
+- Historically important optimization of Insertion Sort.
+
+## Smoothsort
+Adaptive sorting algorithm based on Heapsort.
+
+### Characteristics
+- In-place
+- Not stable
+- O(n log n) worst case
+- O(n) best case
+
+### How It Works
+1. Builds a specialized heap structure using Leonardo numbers.
+2. Exploits existing order in the input.
+3. Performs heap operations to produce a sorted array.
+
+### Advantages
+- Better performance than Heap Sort on nearly sorted data.
+- Maintains Heap Sort's O(n log n) worst-case guarantee.
+
+### Disadvantages
+- Complicated to implement.
+- Rarely used in practice.
+
+### When to Know
+- Interesting example of an adaptive heap-based sorting algorithm.
+
+# Core Algorithms
 
 ## Bubble Sort - O(n²)
 Repeatedly compare adjacent elements and swap them when they're out of order, causing larger elements to "bubble" toward the end of the list until the list is sorted.
