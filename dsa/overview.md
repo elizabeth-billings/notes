@@ -132,3 +132,16 @@ Lower Bound ≤ Exact Growth ≤ Upper Bound
 **Fastest → Slowest Growth**
 
 O(1) → O(log n) → O(n) → O(n log n) → O(n²) → O(n³) → O(2ⁿ) → O(n!)
+
+# Polynomial vs. Exponential
+Algorithms can usually be classified into **polynomial time** (**P**), when the runtime doesn't grow faster than ```n^k``` where ```k``` isany constant and ```n``` is the size of the input, and **exponential time**, though technically ```O(n!)``` is factorial time. Polynomial time algorithms can be useful when they're not too slow but exponential time algorithms are almost always too slow to be practical, except in specific fields like cryptography and security where you're actually trying to force someone to be slow. 
+
+| Polynomial | Exponential |
+|--------|---------|
+| O(1) | O(2ⁿ) |
+| O(n) | O(3ⁿ)  |
+| O(log n) | ... |
+| O(n log n) | O(nⁿ)  |
+| O(n²) | O(n!) |
+| O(n³) |  |
+| ... | | 
