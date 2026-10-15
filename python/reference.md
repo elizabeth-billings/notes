@@ -1523,3 +1523,43 @@ def get_cat(color: Color, size: Size):
 print(get_cat(Color.ORANGE, Size.CHONKY)) # Maxwell
 print(get_cat(Color.GRAY, Size.SKINNY)) # AttributeError: type object 'Color' has no attribute 'GRAY'
 ```
+
+# Generators
+A **generator** produces a sequence of values one at a time on demand, pausing between each value instead of computing and returning everything all at once. In Python, ```yield``` is used to turn a function into a generator function. 
+
+## yield
+```python
+def message_generator():
+    yield "I"
+    yield "love"
+    yield "Maxwell"
+    yield "<3" 
+
+generator = message_generator()
+print(next(generator)) # I 
+print(next(generator)) # love 
+print(next(generator)) # Maxwell
+print(next(generator)) # <3
+```
+
+## yield in loops
+A standard for loop handles calling ```next()``` "under the hood" 
+
+```python
+def create_doubler():
+    val = 1
+    while True: # keep repeating this loop forever unless something outside or inside stops it
+        yield val
+        val *= 2
+
+for val in create_doubler(): 
+    print(val)
+    if val >= 8: 
+        break
+
+# Prints:
+#   1 
+#   2
+#   4
+#   8
+```
