@@ -25,21 +25,7 @@ Random notes from various tech subjects
      - [ ] Web Security
      - [ ] Pub / Sub Architecture
      - [ ] "Capstone" Project [TBD]
-     - [ ] Job Search 
-- [ ] *Snowflake the Definitive Guide* (2022) by Joyce Kay Avila
-     - [x] Getting Started
-     - [ ] Creating and Managing the Snowflake Architecture
-     - [ ] Creating and Managing Snowflake Securable Database Objects
-     - [ ] Exploring Snowflake SQL Commands, Data Types, and Functions
-     - [ ] Leveraging Snowflake Access Controls
-     - [ ] Data Loading and Unloading
-     - [ ] Implementing Data Governance, Account Security, and Data Protection and Recovery
-     - [ ] Managing Snowflake Account Costs
-     - [ ] Analyzing and Improving Snowflake Query Performance
-     - [ ] Configuring and Managing Secure Data Sharing
-     - [ ] Visualizing Data in Snowsight
-     - [ ] Workloads for the Snowflae Data Cloud
-     - [x] Snowflake Object Naming Best Practices       
+     - [ ] Job Search    
 
 ## Backlog 
 - [ ] Databricks
